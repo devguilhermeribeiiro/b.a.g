@@ -1,7 +1,7 @@
+mod legacy_address;
 mod native_segwit_addresses;
 mod private_key;
 mod public_key;
-mod segwit_address;
 mod wif;
 
 fn main() {
@@ -11,12 +11,12 @@ fn main() {
 
     let wif = wif::generate(&private_key);
 
-    let segwit_address = segwit_address::generate(public_key);
+    let legacy_address = legacy_address::generate(public_key);
 
     let native_segwit_address = native_segwit_addresses::generate(public_key);
 
     println!(
-        "Wif: {}\nSegwit address: {:?}\nNative segwit address: {:?}",
-        wif, segwit_address, native_segwit_address
+        "Wif: {}\nLegacy_address address: {:?}\nNative segwit address: {:?}",
+        wif, legacy_address, native_segwit_address
     );
 }
